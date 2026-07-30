@@ -1,0 +1,113 @@
+PROYECTO: Infinity — Pasos 6 y 7 (secciones del sitio + contenido de cada sección)
+======================================================================
+Modelo protagonista: INFINITI QX55 2025
+Paleta: #020B24 (Principal 1) · #FEFEFE (Principal 2) · #B0A591 (Secundario)
+Tipografía: familia ligera única, peso 200-500 (ver paso 3)
+Layout base: Concepto 04 — narrativa por escenas (ver infinity_5_layouts.html)
+Fondo de cada sección: el frame inicial/final del clip de video de esa escena
+(paso5_video_prompts.json)
+
+----------------------------------------------------------------------
+SECCIÓN 1 — Hero / Diseño (fondo: Escena 1, video en loop)
+----------------------------------------------------------------------
+Eyebrow:      Totalmente nueva
+Headline:     INFINITI QX55 2025
+Subhead:      Una silueta que no se repite. Descúbrela antes que nadie.
+CTA primario:   Conócela
+CTA secundario: Agenda una prueba de manejo
+Nav superior:  Modelos · Cotiza · Distribuidores · Contacto
+
+----------------------------------------------------------------------
+SECCIÓN 2 — Rendimiento (fondo: Escena 2)
+----------------------------------------------------------------------
+Eyebrow:   Rendimiento
+Headline:  Potencia entregada con precisión
+Body:      Tracción integral inteligente y suspensión adaptativa, pensadas
+           para la Ciudad de México y para la carretera abierta.
+Specs (chips, tabular):
+  - Motor:        [PENDIENTE: confirmar cifra oficial QX55 2025]
+  - Potencia:      [PENDIENTE: confirmar hp oficial]
+  - Transmisión:   Automática multi-velocidad (confirmar # de velocidades)
+  - Rendimiento:   [PENDIENTE: km/l oficial]
+CTA: Ver ficha técnica completa
+Nota: NO publicar specs sin confirmar contra la ficha oficial de INFINITI —
+      lo anterior son placeholders de formato, no cifras reales.
+
+----------------------------------------------------------------------
+SECCIÓN 3 — Interior (fondo: Escena 3)
+----------------------------------------------------------------------
+Eyebrow:   Interior
+Headline:  Piel premium, silencio de cabina
+Body:      Cada superficie pensada para el trayecto largo, con una cabina
+           que aísla el ruido exterior sin esfuerzo.
+Bullets (confirmar con specs reales antes de publicar):
+  - Asientos con calefacción y ventilación
+  - Iluminación ambiental configurable
+  - Techo panorámico
+CTA: Agenda una prueba de manejo
+
+----------------------------------------------------------------------
+SECCIÓN 4 — Tecnología (fondo: Escena 4)
+----------------------------------------------------------------------
+Eyebrow:   Tecnología
+Headline:  Asistencia que se siente, no se nota
+Body:      Cámara Around View Monitor de 360°, pantalla central y
+           conectividad pensadas para no distraer, solo ayudar.
+Feature chips:
+  - Around View Monitor (360°)
+  - Head-Up Display
+  - Carga inalámbrica
+  - [PENDIENTE: confirmar features reales de conectividad 2025]
+CTA: Explora la tecnología INFINITI
+
+----------------------------------------------------------------------
+SECCIÓN 5 — Cierre + Cotizador (fondo: Escena 5, cierre en el emblema)
+----------------------------------------------------------------------
+Eyebrow:   Cotización
+Headline:  Arma la tuya en menos de dos minutos
+Formulario:
+  - Nombre
+  - Teléfono
+  - Correo
+  - Versión de interés (dropdown, según versiones reales del QX55)
+  - Distribuidor más cercano (dropdown)
+CTA: Solicita tu cotización
+Nota: el formulario alimenta al panel de Administrador (Paso 8) para dar
+      seguimiento a los leads.
+
+----------------------------------------------------------------------
+SECCIÓN 6 — Distribuidores / Ubicación
+----------------------------------------------------------------------
+Headline: Nada se compara con verla en persona
+Body:     Encuentra el distribuidor autorizado más cercano y agenda tu visita.
+Contenido: [PENDIENTE — falta dato del cliente: dirección(es), teléfono,
+           horario del/los distribuidor(es) de Infinity. No se debe
+           inventar esta información.]
+CTA: Encuentra tu distribuidor
+
+----------------------------------------------------------------------
+SECCIÓN 7 — Footer
+----------------------------------------------------------------------
+- Logo INFINITI (logo_infiniti.png)
+- Enlaces: Modelos · Cotizador · Distribuidores · Contacto
+- Contacto: [PENDIENTE — correo/teléfono de contacto de Infinity]
+- Redes sociales: [PENDIENTE — cuentas reales de Infinity]
+- Aviso legal / privacidad
+
+----------------------------------------------------------------------
+FUERA DE LAS SECCIONES PÚBLICAS — Panel de Administrador (usuario "Administrador")
+----------------------------------------------------------------------
+No es una sección visual del sitio, es funcionalidad de backend (se define
+técnicamente en el Paso 8, el prompt maestro):
+  - Ver/gestionar los leads que llegan del formulario de cotización
+  - Editar contenido básico de las secciones (texto, specs, distribuidores)
+  - Marcar estado de cada lead (nuevo / contactado / cerrado)
+
+----------------------------------------------------------------------
+PENDIENTES QUE REQUIEREN INFORMACIÓN REAL DEL CLIENTE (no inventar)
+----------------------------------------------------------------------
+1. Specs oficiales del QX55 2025 (motor, potencia, transmisión, rendimiento)
+2. Versiones/trims disponibles para el dropdown del cotizador
+3. Dirección(es), teléfono y horario del/los distribuidor(es)
+4. Correo/teléfono de contacto público de Infinity
+5. Cuentas de redes sociales reales de Infinity

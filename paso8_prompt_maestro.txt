@@ -1,0 +1,130 @@
+PROYECTO: Infinity — Paso 8 (prompt maestro para generar el sitio completo)
+======================================================================
+Este es el prompt final para pegar en una IA de código (Claude Code, Cursor,
+etc.) para que construya el sitio completo. Reúne todo lo definido en los
+Pasos 1-7: marca (INFINITI QX55), colores, tipografía, layout, secciones,
+contenido y video.
+
+----------------------------------------------------------------------
+PROMPT MAESTRO (copiar y pegar completo)
+----------------------------------------------------------------------
+
+Actúa como un equipo experto de desarrollo full-stack, marketing, ventas y
+UI/UX. Necesito que construyas el sitio web completo, funcional y listo
+para desplegar, de una landing page dinámica para promover el INFINITI QX55
+2025, para la marca Infinity.
+
+OBJETIVO DEL SITIO
+El objetivo principal es generar cotizaciones/leads calificados para el
+INFINITI QX55 2025. Optimiza todo el diseño y flujo de navegación
+priorizando: (1) conversión — que el visitante llegue al formulario de
+cotización con la menor fricción posible, y (2) usabilidad del usuario
+final — navegación clara, rápida y cómoda tanto en escritorio como en
+móvil.
+
+USUARIOS DEL SITIO
+Dos tipos de usuario:
+- Visitantes (público general, sin cuenta): navegan el sitio público y
+  llenan el formulario de cotización.
+- Administrador (1 usuario interno, con login): accede a un panel privado
+  para ver y gestionar los leads que llegan del formulario.
+
+NAVEGACIÓN VISUAL: VIDEO COMO FRAMES
+El sitio debe usar un video de presentación (ya producido, 5 escenas:
+Diseño, Rendimiento, Interior, Tecnología, Cierre en el emblema) cortado en
+frames como recurso de navegación visualmente impactante — cada sección del
+scroll principal corresponde a una escena del video, con el frame
+inicial/final de esa escena como fondo de la sección (en vez de imágenes
+estáticas genéricas). Optimiza la transición entre secciones (scroll o
+navegación por "escenas") para que se sienta cohesiva y fluida entre
+sesiones del usuario, no como páginas desconectadas.
+
+IDENTIDAD VISUAL
+- Colores: #020B24 (Principal 1, fondos oscuros/CTAs), #FEFEFE (Principal
+  2, fondos claros), #B0A591 (Secundario, acentos y detalles)
+- Tipografía: una sola familia tipográfica ligera, variando peso 200-500
+  según jerarquía (encabezados más ligeros, cuerpo de texto peso regular)
+- Logo: INFINITI (adjunto logo_infiniti.png / logo_infiniti.svg)
+- Referencia de layout: adjunto infinity_5_layouts.html — usa el
+  "Concepto 04: Narrativa por escenas" como base de la navegación principal
+
+SECCIONES Y CONTENIDO (detalle completo adjunto en
+paso6_7_secciones_contenido.txt — respeta el copy y la estructura ahí
+definidos)
+1. Hero/Diseño — headline "INFINITI QX55 2025", CTA "Conócela" /
+   "Agenda una prueba de manejo"
+2. Rendimiento — specs del motor/potencia/transmisión en formato de chips
+3. Interior — materiales y confort
+4. Tecnología — Around View Monitor, Head-Up Display, conectividad
+5. Cierre + Cotizador — formulario de cotización (nombre, teléfono, correo,
+   versión de interés, distribuidor más cercano)
+6. Distribuidores/Ubicación — dónde ver el auto en persona
+7. Footer — contacto, redes sociales, aviso legal
+
+Nota: algunos datos de esas secciones (specs oficiales del QX55, versiones/
+trims, dirección del distribuidor, contacto real, redes sociales) están
+marcados como PENDIENTES en ese archivo porque aún no los tenemos
+confirmados — usa placeholders claramente editables para esos campos, no
+inventes cifras ni datos de contacto reales.
+
+PANEL DE ADMINISTRADOR
+Ruta privada con autenticación (login simple, 1 usuario administrador) que
+permita:
+- Ver la lista de leads/cotizaciones recibidas (tabla con nombre, teléfono,
+  correo, versión de interés, distribuidor, fecha)
+- Cambiar el estado de cada lead (nuevo / contactado / cerrado)
+- Editar el contenido básico de las secciones públicas (specs, distribuidor,
+  contacto) sin tocar código
+
+STACK TÉCNICO (obligatorio)
+- Backend: Flask (API REST)
+- ORM / base de datos: SQLAlchemy sobre PostgreSQL
+- Frontend: React (SPA, consumiendo la API del backend)
+- Cola de tareas asíncronas: Celery con RabbitMQ como broker — úsalo para
+  procesar cada lead nuevo del formulario (ej. enviar notificación por
+  correo al administrador de forma asíncrona, sin bloquear la respuesta al
+  usuario)
+- Redis: caché de contenido de las secciones públicas y almacenamiento de
+  sesión del panel de administrador
+
+REQUISITOS NO FUNCIONALES
+- Responsive (móvil y escritorio), con las versiones 9:16 del video en
+  móvil y 16:9 en escritorio
+- Formulario de cotización funcional de extremo a extremo: guarda en
+  PostgreSQL vía SQLAlchemy, dispara la tarea de Celery/RabbitMQ
+- SEO básico (meta tags, títulos por sección)
+- Accesibilidad básica (foco visible en controles, contraste adecuado con
+  la paleta de colores dada)
+
+ENTREGABLE
+Todo el código fuente (backend Flask + frontend React + configuración de
+Celery/RabbitMQ/Redis + migraciones de base de datos) entregado en un
+archivo ZIP, con un README con instrucciones de instalación y ejecución
+local (docker-compose si aplica), y una lista clara de las variables de
+entorno necesarias.
+
+ARCHIVOS ADJUNTOS QUE DEBES USAR COMO REFERENCIA
+- Video de presentación (5 escenas, ya producido) — usar como frames de
+  navegación
+- logo_infiniti.png / logo_infiniti.svg — logo real de la marca
+- infinity_5_layouts.html — referencia de layout (Concepto 04)
+- paso6_7_secciones_contenido.txt — copy y contenido detallado por sección
+- ref_hero_owner_leaning.jpg, ref_closeup_grille.jpg, ref_vista_aerea.jpg —
+  imágenes de referencia de estilo fotográfico
+
+----------------------------------------------------------------------
+Plantilla genérica original (hoja "Tarea", fila 25, para reutilizar con
+otros proyectos)
+----------------------------------------------------------------------
+"El sitio ABC que deseo construir tiene como objetivo general ABC sin
+embargo, me gustaria optimizarlo para (conseguir ventas, facilitar la
+usabilidad al usuario final, …) actua como experto en marketing, ventas y
+desarrollo UIUX, dame un prompt para solicitar a otra IA un sitio dinamico
+profesional que usuara videos como frames para una navegacion visualmente
+impactante, dado que el sitio tendra ABC usuarios y ABC tipos de usuario,
+debe entregar en un archivo ZIP, todo el codigo considerando las
+tecnologias flask, react, postgresql, sqlalchemy, rabbitmq, redis, celery.
+Considera que se entregara adjunto un video de presentacion para usar en
+el index en frames, las secciones con imagenes, texto a incluir, y layout
+que de ser necesario debe optimizar para lograr cohercion en la navegacion
+entre sesiones"

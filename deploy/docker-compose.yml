@@ -1,0 +1,14 @@
+name: infinity
+
+services:
+  web:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    ports:
+      - "8081:80"
+    restart: unless-stopped
+
+# Cuando exista el backend Flask del Paso 8, agregar aquí los servicios
+# "api" (Flask + Celery) y "db" (postgres:16-alpine), siguiendo el mismo
+# patrón que visas_y_pasaportes_america/deploy/docker-compose.yml.

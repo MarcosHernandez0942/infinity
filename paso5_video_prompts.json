@@ -1,0 +1,143 @@
+{
+  "proyecto": "Infinity",
+  "paso": 5,
+  "hoja_origen": "Tarea",
+  "nota": "Los campos 'prompt' están en inglés a propósito: los modelos de generación de video/imagen (Runway, Kling, Sora, Luma, Veo/Flow, etc.) responden de forma más consistente en inglés. El resto de las etiquetas quedan en español para referencia de Marcos.",
+
+  "historial_de_cambios": {
+    "v2": "Auto ficticio/sin marca, para evitar copiar otra marca por error — pero el proyecto es para la marca real INFINITI.",
+    "v3": "Se revirtió a marca real: INFINITI QX80, con su parrilla de doble arco y emblema circular real. Se cambió 'coupé' por 'SUV' porque el catálogo real de Infiniti son puras SUVs.",
+    "v4": "Primera prueba en Google Flow: salió con INFINITI correcto, pero con una luz demasiado marcada que delataba que era IA (look muy 'gráfico'). Cambios en v4: (1) se suavizó la iluminación en todos los prompts — de 'single dramatic rim light' a luz de estudio de tres puntos, más suave y realista; (2) se cambió el modelo de QX80 a INFINITI QX55 (silueta más deportiva tipo coupé-SUV, 2 filas de asientos); (3) se rediseñó el cierre (Escena 5): en vez de solo alejarse a espacio vacío, el video ahora cierra con un acercamiento (push-in) nítido al emblema INFINITI en la parrilla, dejando espacio junto al emblema para el CTA — un recurso clásico de comerciales automotrices reales."
+  },
+
+  "identidad_de_marca": "The vehicle must be a real, recognizable 2025 INFINITI QX55 compact luxury coupe-crossover SUV — INFINITI's actual double-arch front grille design (a wide trapezoidal chrome-trimmed grille with a fine mesh pattern) with the genuine circular INFINITI emblem centered on it (a chrome badge with INFINITI's stylized winged/road-vanishing-point mark), split LED headlamps with INFINITI's signature blade-shaped daytime running lights, and the QX55's distinctive sloping coupe-like roofline. Do NOT substitute any other brand's grille or badge (not a Lexus spindle grille, not a BMW kidney grille, not a Mercedes-Benz star, not an Audi four-ring badge) — the design must read unmistakably as INFINITI.",
+  "aviso": "Las especificaciones técnicas (potencia, motor, rendimiento) usadas como referencia son aproximadas — confirmar cifras exactas del QX55 2025 en la ficha técnica oficial de INFINITI antes de usarlas en material publicado.",
+
+  "estilo_de_iluminacion": "IMPORTANTE (aprendido de la primera prueba): evitar iluminación de un solo rayo muy marcado/dramático — eso es lo que hizo que el resultado se viera 'de IA'. Usar en su lugar una iluminación de estudio de tres puntos, suave y realista, con reflejos controlados y sutiles sobre la carrocería, más parecida a una sesión de fotografía automotriz profesional real que a un efecto gráfico.",
+
+  "notas_google_flow": {
+    "herramienta": "Google Labs Flow (Veo)",
+    "duracion_y_formato": "No hace falta escribir la duración ni '16:9'/'9:16' en el texto del prompt — en Flow eso se elige en los controles de la propia herramienta (aspect ratio y duración del clip). Las menciones que ya tienen los prompts no hacen daño, pero el límite real lo pone Flow, no el texto.",
+    "ingredients_to_video": "Usa el modo 'Ingredients to Video' de Flow: sube una imagen de referencia del QX55 (una vez que la Escena 1 salga correcta) junto con el texto de cada escena, para que el vehículo se mantenga consistente y no se reinvente en cada clip.",
+    "flujo_sugerido": [
+      "1. Genera primero SOLO la imagen de referencia de la Escena 1 (más barata) y revisa que: (a) sea un INFINITI QX55 real y (b) la iluminación se vea natural, no 'de IA'.",
+      "2. Si sale bien, úsala como imagen de referencia (ingredient) para las otras 4 escenas.",
+      "3. Ajusta el aspect ratio en el panel de Flow según corresponda (16:9 escritorio / 9:16 móvil).",
+      "4. Si una escena sale mal, regenera solo esa — no las 5 — para no gastar de más."
+    ]
+  },
+
+  "video_concept": {
+    "idea_general": "Video de lanzamiento cinematográfico para el INFINITI QX55 2025. 5 escenas (Diseño, Rendimiento, Interior, Tecnología, Cierre en el emblema) que recorren la misma narrativa que el Concepto 04 de la landing, para poder reutilizar los frames del video como fondos de esas escenas.",
+    "tono": "premium, silencioso, preciso, realista — nada de acción exagerada, ni texto grande en pantalla, ni iluminación que se note artificial; el auto y una luz suave hacen el trabajo",
+    "paleta_de_grading": {
+      "sombras": "#020B24",
+      "acentos_calidos": "#B0A591",
+      "blancos": "#FEFEFE"
+    },
+    "uso_final": "cada escena se recorta en frames (Paso 5.6) para usarse como fondo de las 5 escenas del Concepto 04 (narrativa por escenas) de la landing"
+  },
+
+  "escenas": [
+    {
+      "id": 1,
+      "nombre": "Diseño",
+      "narrativa_es": "El QX55 en un estudio, con luz suave y realista recorriendo su silueta deportiva.",
+      "imagen_referencia_inicial": {
+        "descripcion_es": "Frente 3/4, estudio, luz de tres puntos suave y natural",
+        "prompt": "Photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV, three-quarter front view, parked in a clean minimalist studio, soft natural three-point studio lighting (no single dramatic light source), gentle even highlights along the body lines, near-black background fading to a soft gradient, ultra-detailed automotive photography like a real professional car photoshoot, shallow depth of field, no people. The vehicle must show INFINITI's real double-arch grille design with the genuine circular INFINITI emblem clearly visible and correctly rendered, and the QX55's sloping coupe-like roofline — not any other brand's grille or badge."
+      },
+      "imagen_referencia_final": {
+        "descripcion_es": "Perfil lateral, atardecer suave",
+        "prompt": "Photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV, full side profile silhouette showing its sloping coupe-like roofline, soft dusk lighting, gentle warm bronze highlight along the roofline, natural falloff into shadow (not a harsh single beam), minimalist empty background, cinematic but realistic automotive photography, no people. INFINITI badging on the front grille must be accurate and legible — not any other brand's logo."
+      },
+      "clip_prompt_16_9": "Cinematic automotive commercial, slow orbiting camera move around the front fascia of a photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV in a clean minimalist studio. Soft, natural three-point studio lighting — no single dramatic beam or harsh rim light — with gentle, even highlights sweeping across the chrome double-arch grille and the circular INFINITI emblem at its center as the camera circles. Realistic color grade: near-black shadows (#020B24), warm bronze highlights (#B0A591), clean white specular hits (#FEFEFE), all subtle and true-to-life like a real automotive photoshoot, not graphic or exaggerated. Shallow depth of field, slow deliberate camera speed, no people, no text overlays, seamless loopable start and end poses. The grille and INFINITI emblem must be rendered accurately and clearly readable as INFINITI — not any other brand.",
+      "clip_prompt_9_16": "Cinematic automotive commercial, vertical mobile format, slow vertical tilt-and-orbit camera move around the front fascia of a photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV in a clean minimalist studio, framed tight to keep the car centered in a vertical frame. Soft, natural three-point studio lighting — no single dramatic beam — with gentle highlights on the chrome double-arch grille and the circular INFINITI emblem at its center. Realistic, true-to-life color grade: near-black shadows (#020B24), warm bronze highlights (#B0A591), clean white specular hits (#FEFEFE). Shallow depth of field, slow deliberate camera speed, no people, no text overlays. The grille and INFINITI emblem must be rendered accurately and clearly readable as INFINITI — not any other brand."
+    },
+    {
+      "id": 2,
+      "nombre": "Rendimiento",
+      "narrativa_es": "El QX55 saliendo de una curva de montaña, con luz de amanecer natural (sin destellos exagerados).",
+      "imagen_referencia_inicial": {
+        "descripcion_es": "SUV coupé detenido en una curva de montaña, amanecer suave",
+        "prompt": "Photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV, low angle three-quarter rear view, stopped at a mountain road switchback at dawn, soft natural golden light (not overexposed or glowing), wet asphalt with subtle realistic reflections, true-to-life automotive photography, no people. INFINITI badge on the liftgate must be accurate — not any other brand."
+      },
+      "imagen_referencia_final": {
+        "descripcion_es": "SUV coupé acelerando fuera de la curva, motion blur natural",
+        "prompt": "Photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV, low angle tracking shot, accelerating out of a mountain switchback at dawn, natural motion blur on wheels and background, soft golden morning light, wet asphalt reflections in muted bronze and white tones, realistic automotive photography (no exaggerated lens flare), no people. INFINITI badge on the grille must be accurate — not any other brand."
+      },
+      "clip_prompt_16_9": "Cinematic automotive commercial, dynamic low tracking shot following a photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV accelerating out of a mountain switchback at dawn. Natural motion blur on wheels and background, camera stays low and close to the road. Wet asphalt catches soft, natural golden dawn light with muted bronze reflections (#B0A591) — realistic, not glowing or overexposed. Deep shadow tones (#020B24), clean highlight pops (#FEFEFE) kept subtle. Restrained, natural lens character (no exaggerated anamorphic flare), sense of controlled power, no people, no text overlays. The vehicle's proportions, double-arch grille, and INFINITI emblem must be accurate to the real QX55 — not any other brand.",
+      "clip_prompt_9_16": "Cinematic automotive commercial, vertical mobile format, low tracking shot following a photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV accelerating out of a mountain switchback at dawn, framed to keep the car vertically centered with road and horizon visible above. Natural motion blur on wheels, soft wet asphalt bronze reflections (#B0A591), deep shadow tones (#020B24), realistic and not overexposed. No people, no text overlays. The vehicle's proportions, double-arch grille, and INFINITI emblem must be accurate to the real QX55 — not any other brand."
+    },
+    {
+      "id": 3,
+      "nombre": "Interior",
+      "narrativa_es": "Detalle de piel y luz ambiental suave, revelando la cabina del QX55.",
+      "imagen_referencia_inicial": {
+        "descripcion_es": "Macro de textura de piel cosida",
+        "prompt": "Extreme macro close-up of stitched premium leather texture on the door panel of a 2025 INFINITI QX55, soft warm natural side lighting (not a hard glowing highlight), shallow depth of field, subtle bronze-toned ambient light spill, realistic premium automotive interior photography, no people visible."
+      },
+      "imagen_referencia_final": {
+        "descripcion_es": "Cabina revelada, luz ambiental cálida y sutil",
+        "prompt": "Wide interior shot of a 2025 INFINITI QX55 cabin at night, soft warm ambient light strip along the dashboard glowing gently in bronze (#B0A591) — subtle, not overexposed, city lights softly blurred through tinted windows, quiet and precise mood, realistic premium automotive interior photography, no visible occupants or faces. Interior design and INFINITI steering-wheel badge must be accurate to the real QX55 — not any other brand."
+      },
+      "clip_prompt_16_9": "Cinematic automotive commercial, extreme macro push-in on stitched premium leather texture on a door panel, soft warm natural side light, then a smooth transition (match cut) pulling back to reveal the full quiet cabin interior of a 2025 INFINITI QX55 at night. Ambient light strip along the dashboard glows gently in a warm bronze tone (#B0A591) — subtle, realistic, not glowing or exaggerated — near-black background tones (#020B24), clean white light accents (#FEFEFE) kept restrained. Calm, precise, premium, true-to-life mood. No visible occupants' faces, hands only if needed, no text overlays. Interior details and the INFINITI steering-wheel badge must be accurate — not any other brand.",
+      "clip_prompt_9_16": "Cinematic automotive commercial, vertical mobile format, macro push-in on stitched premium leather texture transitioning into a vertical-framed pull-back of the 2025 INFINITI QX55 cabin interior at night, dashboard ambient light glowing gently in bronze (#B0A591) against near-black tones (#020B24), subtle and realistic. Calm, precise, premium mood, no visible occupants' faces, no text overlays. Interior details and the INFINITI steering-wheel badge must be accurate — not any other brand."
+    },
+    {
+      "id": 4,
+      "nombre": "Tecnología",
+      "narrativa_es": "Vista POV nocturna con HUD discreto, hacia la pantalla del Around View Monitor (cámara de 360°).",
+      "imagen_referencia_inicial": {
+        "descripcion_es": "POV de manejo nocturno con HUD discreto",
+        "prompt": "First-person point-of-view shot from inside a 2025 INFINITI QX55 driving at night, a subtle, low-brightness heads-up display showing speed and navigation glyphs in white and bronze tones projected on the windshield (not glowing or overexposed), city lights softly blurred ahead, realistic premium automotive technology photography."
+      },
+      "imagen_referencia_final": {
+        "descripcion_es": "Pantalla central armando la vista de Around View Monitor (360°)",
+        "prompt": "Close-up of the 2025 INFINITI QX55's center touchscreen display assembling INFINITI's Around View Monitor — a top-down 360-degree camera composite of the vehicle, subtle white and bronze UI animation elements at low brightness, dark cabin ambiance, realistic premium automotive technology photography, no visible occupants."
+      },
+      "clip_prompt_16_9": "Cinematic automotive commercial, first-person night driving point-of-view from inside a photoreal 2025 INFINITI QX55, a subtle low-brightness heads-up display projected on the windshield showing speed and navigation glyphs in white (#FEFEFE) and bronze (#B0A591) tones (not glowing), then a smooth transition to a close-up of the center touchscreen assembling INFINITI's Around View Monitor (top-down 360-degree camera composite of the car). Dark cabin ambiance (#020B24), subtle, restrained UI animation, no visible occupants, no readable brand text other than the vehicle's own accurate INFINITI badging.",
+      "clip_prompt_9_16": "Cinematic automotive commercial, vertical mobile format, first-person night driving point-of-view framed vertically, subtle low-brightness heads-up display in white (#FEFEFE) and bronze (#B0A591) tones, transitioning to a vertical close-up of the center touchscreen assembling INFINITI's Around View Monitor (360-degree camera composite). Dark cabin ambiance (#020B24), no visible occupants, no readable brand text other than the vehicle's own accurate INFINITI badging."
+    },
+    {
+      "id": 5,
+      "nombre": "Cierre en el emblema",
+      "narrativa_es": "Toma general del QX55 bajo luz suave, la cámara avanza y termina con un acercamiento nítido al emblema INFINITI en la parrilla — el cierre del video, con espacio junto al emblema para el CTA.",
+      "imagen_referencia_inicial": {
+        "descripcion_es": "SUV completo, luz de estudio suave, cámara aún alejada",
+        "prompt": "Photoreal 2025 INFINITI QX55 compact luxury coupe-crossover SUV, three-quarter front view, parked motionless in a softly lit minimalist studio, gentle even studio lighting (no harsh single beam), bronze-toned warmth (#B0A591) balanced against near-black tones (#020B24) at the edges, symmetrical composition, realistic premium automotive photography, no people, no text. The grille and INFINITI emblem must be accurate — not any other brand."
+      },
+      "imagen_referencia_final": {
+        "descripcion_es": "Acercamiento nítido y centrado al emblema INFINITI de la parrilla",
+        "prompt": "Extreme close-up, sharply focused on the circular INFINITI emblem at the center of the QX55's chrome double-arch grille, soft even studio lighting (no harsh glare or artificial-looking glow), shallow depth of field with the rest of the grille gently blurred, near-black background (#020B24), subtle bronze highlight (#B0A591) along the emblem's edge, generous empty negative space to one side reserved for a text/CTA overlay, realistic premium automotive photography, no people, no text baked into the image. The emblem must be the genuine INFINITI badge, accurately rendered — not any other brand's logo."
+      },
+      "clip_prompt_16_9": "Cinematic automotive commercial, the camera begins on a wide three-quarter view of a photoreal 2025 INFINITI QX55 parked motionless in a softly lit minimalist studio, then slowly and steadily pushes forward in one continuous move, ending in an extreme close-up sharply focused on the circular INFINITI emblem at the center of the chrome double-arch grille. Lighting stays soft and even throughout (no harsh single beam or artificial-looking glow) — realistic, true-to-life studio photography. Bronze-toned warmth (#B0A591) balanced against near-black tones (#020B24), clean white highlight (#FEFEFE) on the emblem's chrome as the camera settles. The final frame holds still on the emblem in shallow depth of field, with generous empty negative space beside it reserved for a text/CTA overlay to be added in post. No people, no text baked into the footage. The emblem must be the genuine, accurately rendered INFINITI badge — not any other brand's logo.",
+      "clip_prompt_9_16": "Cinematic automotive commercial, vertical mobile format, the camera begins on a wide three-quarter view of a photoreal 2025 INFINITI QX55 parked motionless in a softly lit minimalist studio, then slowly pushes forward in one continuous vertical-framed move, ending in an extreme close-up sharply focused on the circular INFINITI emblem at the center of the chrome double-arch grille. Lighting stays soft and even throughout (no harsh single beam or artificial glow). Bronze-toned warmth (#B0A591) balanced against near-black tones (#020B24). The final frame holds still on the emblem in shallow depth of field, with empty negative space above or below reserved for a text/CTA overlay to be added in post. No people, no text baked into the footage. The emblem must be the genuine, accurately rendered INFINITI badge — not any other brand's logo."
+    }
+  ],
+
+  "edicion": {
+    "herramienta_sugerida": "CapCut o Premiere Pro",
+    "instrucciones_es": [
+      "Ordenar las escenas 1 a 5 en ese orden (Diseño → Rendimiento → Interior → Tecnología → Cierre en el emblema).",
+      "Transiciones: disolvencia cruzada (cross-dissolve) de 0.4s entre escenas, nada más llamativo.",
+      "La Escena 5 ya termina en el emblema — ahí mismo se coloca el texto/CTA final (ej. 'Cotiza tu INFINITI QX55'), no hace falta una tarjeta de cierre aparte.",
+      "Opcional: tarjeta de apertura de 1-2s con el logo real de INFINITI (logo_infiniti.png, ya guardado en /referencias) sobre fondo #020B24, si se quiere reforzar la marca desde el inicio también.",
+      "Grading general: reforzar sombras hacia #020B24, acentos cálidos hacia #B0A591, blancos limpios #FEFEFE — consistente con la paleta del sitio, manteniendo todo sutil y realista.",
+      "Exportar ambas versiones completas: 16:9 (1920x1080) para el sitio de escritorio, y 9:16 (1080x1920) para el sitio móvil y redes."
+    ]
+  },
+
+  "extraccion_frames": {
+    "herramienta": "ffmpeg",
+    "comando_ejemplo": "ffmpeg -i escena_05_cierre_16x9.mp4 -vf \"select='eq(n,0)+eq(n,N-1)'\" -vsync vfr frame_escena05_%d.jpg",
+    "notas_es": "Extraer el primer y último frame de cada uno de los 5 clips en alta resolución, para usarlos como fondo inicial/final de cada escena del Concepto 04 de la landing (reemplazando los placeholders de infinity_5_layouts.html). El último frame de la Escena 5 (el emblema) es candidato natural para una imagen de cierre/CTA en el sitio."
+  },
+
+  "recomendacion_antes_de_generar": [
+    "Genera primero SOLO la imagen de referencia inicial de la Escena 1 y revisa dos cosas: (a) que sea un INFINITI QX55 real, y (b) que la luz se vea natural y no 'de IA' — antes de gastar tokens en los 10 clips.",
+    "Usa el modo 'Ingredients to Video' de Flow con esa imagen ya corregida como referencia del vehículo para las otras 4 escenas.",
+    "Si tu herramienta tiene campo de 'negative prompt', agrega: 'Lexus logo, Lexus spindle grille, BMW logo, BMW kidney grille, Mercedes-Benz star, Audi four rings, Tesla logo, wrong brand badge, harsh dramatic single light beam, glowing artificial highlight, exaggerated lens flare, oversaturated glow' — esto último para atacar directamente el problema de la luz muy marcada.",
+    "Revisar los lineamientos de uso de marca de INFINITI (o el acuerdo con el distribuidor) antes de publicar video generado por IA con su logo/parrilla real, para confirmar que este uso está permitido en el contexto de la campaña."
+  ]
+}

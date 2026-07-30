@@ -1,0 +1,481 @@
+<title>Infinity — 5 propuestas de layout</title>
+<style>
+  :root {
+    --ink: #020B24;
+    --paper: #FBFAF7;
+    --paper-alt: #F3F0E8;
+    --bronze: #B0A591;
+    --bronze-deep: #7C6F55;
+    --bronze-tint: #EAE5D9;
+    --mist: #5B6478;
+    --line: #E4E0D6;
+    --line-strong: #cfc9b8;
+    --shadow: 0 30px 60px -30px rgba(2, 11, 36, 0.35);
+    color-scheme: light;
+  }
+  :root[data-theme="dark"] {
+    --ink: #F3F1EC;
+    --paper: #05081A;
+    --paper-alt: #0D1330;
+    --bronze: #C9BEA8;
+    --bronze-deep: #E7DFCC;
+    --bronze-tint: #1B2140;
+    --mist: #9AA2B8;
+    --line: #202744;
+    --line-strong: #2c3456;
+    --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #F3F1EC;
+      --paper: #05081A;
+      --paper-alt: #0D1330;
+      --bronze: #C9BEA8;
+      --bronze-deep: #E7DFCC;
+      --bronze-tint: #1B2140;
+      --mist: #9AA2B8;
+      --line: #202744;
+      --line-strong: #2c3456;
+      --shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
+      color-scheme: dark;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---- top bar ---- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 28px; max-width: 1180px; margin: 0 auto;
+    flex-wrap: wrap; gap: 10px;
+  }
+  .brandmark { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mist); }
+  .brandmark b { color: var(--ink); font-weight: 500; }
+  .pillnav { display: flex; gap: 6px; flex-wrap: wrap; }
+  .pillnav a {
+    font-size: 12px; letter-spacing: 0.04em; text-decoration: none; color: var(--mist);
+    padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line);
+    transition: color .2s ease, border-color .2s ease, background .2s ease;
+    white-space: nowrap;
+  }
+  .pillnav a:hover, .pillnav a:focus-visible { color: var(--ink); border-color: var(--bronze); background: var(--bronze-tint); }
+
+  /* ---- intro ---- */
+  .intro { padding: 56px 0 40px; border-bottom: 1px solid var(--line); }
+  .intro .eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bronze-deep); font-weight: 500; }
+  .intro h1 {
+    font-size: clamp(28px, 4vw, 42px); font-weight: 300; margin: 14px 0 18px; text-wrap: balance; letter-spacing: -0.01em;
+  }
+  .intro p { max-width: 62ch; color: var(--mist); font-size: 15.5px; margin: 0 0 10px; }
+  .swatches { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+  .swatch { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--mist); }
+  .dot { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--line-strong); flex: none; }
+
+  /* ---- concept section shell ---- */
+  section.concept { padding: 64px 0 20px; border-bottom: 1px solid var(--line); }
+  .concept-head { margin-bottom: 26px; }
+  .concept-head .eyebrow { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bronze-deep); font-weight: 500; }
+  .concept-head h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 400; margin: 10px 0 8px; text-wrap: balance; }
+  .concept-head p.rationale { color: var(--mist); font-size: 14.5px; max-width: 68ch; margin: 0; }
+
+  .frame {
+    border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow); background: var(--ink); position: relative;
+    margin-bottom: 12px;
+  }
+  .frame-tag {
+    font-size: 11px; letter-spacing: 0.06em; color: var(--mist); margin: 10px 2px 40px; text-align: right;
+  }
+
+  .placeholder-photo {
+    position: relative; display: flex; align-items: flex-end; justify-content: flex-start;
+    background: radial-gradient(120% 100% at 20% 0%, #2b3350 0%, #10142a 45%, #05081a 100%);
+    color: rgba(243,241,236,0.55); overflow: hidden;
+  }
+  .placeholder-photo::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(115deg, transparent 40%, rgba(176,165,145,0.14) 55%, transparent 70%);
+  }
+  .placeholder-photo .cap {
+    position: relative; z-index: 1; font-size: 11.5px; letter-spacing: 0.03em; padding: 14px 16px;
+    font-style: italic; color: rgba(243,241,236,0.6);
+  }
+
+  /* ===== Concept 1: cinematico ===== */
+  .c1 .frame { height: 640px; }
+  .c1-stage { position: relative; height: 100%; }
+  .c1-nav {
+    position: absolute; top: 26px; left: 0; right: 0; display: flex; justify-content: center; gap: 34px;
+    font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(243,241,236,0.75); z-index: 2;
+  }
+  .c1-content {
+    position: absolute; left: 6%; bottom: 14%; z-index: 2; max-width: 520px;
+  }
+  .c1-content .kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 14px; }
+  .c1-content h3 {
+    font-size: clamp(30px, 4.2vw, 52px); font-weight: 200; color: #FBFAF7; margin: 0 0 14px; letter-spacing: -0.01em; text-wrap: balance;
+  }
+  .c1-content p { color: rgba(251,250,247,0.72); font-size: 15px; max-width: 40ch; margin: 0 0 26px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: 0.05em;
+    padding: 13px 26px; border-radius: 2px; text-decoration: none; cursor: pointer; border: 1px solid transparent;
+    transition: background .2s ease, color .2s ease, border-color .2s ease;
+  }
+  .btn-primary { background: var(--bronze); color: #14110a; }
+  .btn-primary:hover { background: var(--bronze-deep); }
+  .btn-ghost { background: transparent; color: #FBFAF7; border-color: rgba(251,250,247,0.4); }
+  .btn-ghost:hover { border-color: #FBFAF7; }
+  .c1-scrollcue {
+    position: absolute; bottom: 22px; right: 6%; z-index: 2; font-size: 11px; letter-spacing: 0.08em;
+    color: rgba(243,241,236,0.55); writing-mode: vertical-rl; text-transform: uppercase;
+  }
+
+  /* ===== Concept 2: split editorial ===== */
+  .c2 .frame { height: 600px; background: var(--paper); }
+  .c2-grid { display: grid; grid-template-columns: 58% 42%; height: 100%; }
+  .c2-grid .placeholder-photo { height: 100%; }
+  .c2-copy {
+    background: var(--paper); color: var(--ink); padding: 52px 44px; display: flex; flex-direction: column; justify-content: center;
+  }
+  .c2-copy .kicker { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze-deep); margin-bottom: 16px; font-weight: 500; }
+  .c2-copy h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 300; margin: 0 0 16px; text-wrap: balance; }
+  .c2-copy p { color: var(--mist); font-size: 14.5px; margin: 0 0 22px; }
+  .speclist { list-style: none; margin: 0 0 28px; padding: 0; border-top: 1px solid var(--line); }
+  .speclist li {
+    display: flex; justify-content: space-between; padding: 11px 0; border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+  }
+  .speclist li span:first-child { color: var(--mist); }
+  .speclist li span:last-child { font-variant-numeric: tabular-nums; font-weight: 500; }
+  .c2-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .c2 .btn-primary { background: var(--ink); color: var(--paper); }
+  :root[data-theme="dark"] .c2 .btn-primary, .c2 .btn-primary { background: var(--ink); }
+  .c2 .btn-ghost { color: var(--ink); border-color: var(--line-strong); }
+
+  /* ===== Concept 3: configurador ===== */
+  .c3 .frame { height: 660px; background: var(--paper-alt); }
+  .c3-inner { padding: 34px 34px 30px; height: 100%; display: flex; flex-direction: column; }
+  .filmstrip { display: flex; gap: 12px; margin-bottom: 28px; overflow-x: auto; padding-bottom: 4px; }
+  .film-item {
+    flex: none; width: 130px; height: 84px; border-radius: 8px; border: 1px solid var(--line);
+    background: linear-gradient(160deg, #232a48, #0c1026);
+    display: flex; align-items: flex-end; padding: 8px; font-size: 11px; color: rgba(243,241,236,0.7);
+    cursor: pointer; position: relative;
+  }
+  .film-item.active { border-color: var(--bronze); box-shadow: 0 0 0 1px var(--bronze); }
+  .film-item.active::after {
+    content: "●"; position: absolute; top: 8px; right: 10px; color: var(--bronze); font-size: 8px;
+  }
+  .c3-model { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 30px; flex: 1; align-items: center; }
+  .c3-model .placeholder-photo { height: 320px; border-radius: 10px; }
+  .c3-model-info h3 { font-size: 26px; font-weight: 300; margin: 0 0 6px; }
+  .c3-model-info .price { color: var(--bronze-deep); font-weight: 500; font-size: 14px; margin-bottom: 20px; font-variant-numeric: tabular-nums; }
+  .chiprow { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
+  .chip {
+    border: 1px solid var(--line-strong); border-radius: 8px; padding: 10px 14px; font-size: 12px; min-width: 108px;
+  }
+  .chip b { display: block; font-size: 15px; font-weight: 500; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .chip span { color: var(--mist); text-transform: uppercase; letter-spacing: 0.04em; font-size: 10.5px; }
+
+  /* ===== Concept 4: escenas / frames ===== */
+  .c4 .frame { height: 620px; }
+  .c4-stage { position: relative; height: 100%; overflow: hidden; }
+  .scene {
+    position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; display: flex; align-items: flex-end;
+  }
+  .scene.active { opacity: 1; }
+  .scene .scene-bg { position: absolute; inset: 0; }
+  .scene-copy { position: relative; z-index: 1; padding: 60px 64px; max-width: 460px; }
+  .scene-copy .num { font-size: 12px; color: var(--bronze); letter-spacing: 0.1em; margin-bottom: 12px; }
+  .scene-copy h3 { font-size: clamp(24px, 3.4vw, 36px); font-weight: 200; color: #FBFAF7; margin: 0 0 12px; }
+  .scene-copy p { color: rgba(251,250,247,0.7); font-size: 14.5px; margin: 0; }
+  .scene-dots {
+    position: absolute; right: 22px; top: 50%; transform: translateY(-50%); z-index: 3;
+    display: flex; flex-direction: column; gap: 16px; align-items: flex-end;
+  }
+  .scene-dots button {
+    all: unset; cursor: pointer; display: flex; align-items: center; gap: 10px; color: rgba(243,241,236,0.5);
+    font-size: 11px; letter-spacing: 0.05em;
+  }
+  .scene-dots button .d { width: 7px; height: 7px; border-radius: 50%; background: rgba(243,241,236,0.35); transition: all .25s ease; }
+  .scene-dots button[aria-current="true"] { color: #FBFAF7; }
+  .scene-dots button[aria-current="true"] .d { background: var(--bronze); width: 9px; height: 9px; }
+
+  /* ===== Concept 5: comparador ===== */
+  .c5 .frame { height: auto; background: var(--paper); }
+  .c5-inner { padding: 36px; }
+  .c5-tablewrap { overflow-x: auto; }
+  table.compare { width: 100%; border-collapse: collapse; min-width: 560px; font-size: 13.5px; }
+  table.compare th, table.compare td { padding: 13px 16px; border-bottom: 1px solid var(--line); text-align: left; }
+  table.compare thead th {
+    position: sticky; top: 0; background: var(--paper); font-weight: 500; color: var(--mist);
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; border-bottom: 1px solid var(--line-strong);
+  }
+  table.compare th.model-col, table.compare td.model-cell { min-width: 150px; }
+  table.compare tbody th { font-weight: 400; color: var(--mist); }
+  table.compare td { font-variant-numeric: tabular-nums; }
+  table.compare tbody tr:hover { background: var(--paper-alt); }
+  .modelname { font-weight: 500; color: var(--ink); display: block; }
+  .modeltag { font-size: 11px; color: var(--bronze-deep); }
+  .rowcta td { border-bottom: none; padding-top: 20px; }
+
+  footer.note {
+    padding: 40px 0 70px; color: var(--mist); font-size: 12.5px; max-width: 68ch;
+  }
+  footer.note b { color: var(--ink); font-weight: 500; }
+
+  @media (max-width: 760px) {
+    .c2-grid { grid-template-columns: 1fr; }
+    .c2-grid .placeholder-photo { height: 220px; }
+    .c3-model { grid-template-columns: 1fr; }
+    .c3-model .placeholder-photo { height: 200px; }
+    .scene-copy { padding: 34px 26px; max-width: 100%; }
+  }
+</style>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark"><b>Infinity</b> — 5 propuestas de layout</div>
+    <nav class="pillnav">
+      <a href="#c1">01 Cinemático</a>
+      <a href="#c2">02 Split editorial</a>
+      <a href="#c3">03 Configurador</a>
+      <a href="#c4">04 Escenas</a>
+      <a href="#c5">05 Comparador</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="intro">
+    <div class="eyebrow">Paso 4 — Hoja de tarea</div>
+    <h1>Cinco formas de aterrizar la landing de Infinity</h1>
+    <p>Explorando la promoción de autos de lujo con la paleta y tipografía identificadas en el sitio de referencia (infiniti.mx). Las fotografías son marcadores de posición — el layout y la jerarquía son lo que se evalúa aquí.</p>
+    <div class="swatches">
+      <div class="swatch"><span class="dot" style="background:#020B24"></span>#020B24 — Principal 1</div>
+      <div class="swatch"><span class="dot" style="background:#FEFEFE"></span>#FEFEFE — Principal 2</div>
+      <div class="swatch"><span class="dot" style="background:#B0A591"></span>#B0A591 — Secundario</div>
+      <div class="swatch">Tipografía: familia ligera única, variando peso 200–500</div>
+    </div>
+  </div>
+
+  <!-- Concept 1 -->
+  <section class="concept c1" id="c1">
+    <div class="concept-head">
+      <div class="eyebrow">Concepto 01</div>
+      <h2>Cinemático de pantalla completa</h2>
+      <p class="rationale">La ruta más fiel a la referencia: una sola imagen hero a sangre completa, navegación mínima y un mensaje corto. Máximo impacto emocional, mínima fricción — ideal si la fotografía del auto es excelente.</p>
+    </div>
+    <div class="frame">
+      <div class="c1-stage placeholder-photo">
+        <span class="cap">Foto — 3/4 frontal, estudio oscuro</span>
+        <div class="c1-nav"><span>Modelos</span><span>Cotiza</span><span>Distribuidores</span><span>Contacto</span></div>
+        <div class="c1-content">
+          <div class="kicker">Totalmente nueva</div>
+          <h3>Infinity GT 2026</h3>
+          <p>Un exterior que se impone, un interior que lo confirma. Descúbrela antes que nadie.</p>
+          <a class="btn btn-primary">Conócela</a>
+          <a class="btn btn-ghost" style="margin-left:10px">Agenda una prueba</a>
+        </div>
+        <div class="c1-scrollcue">Desliza para explorar</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 2 -->
+  <section class="concept c2" id="c2">
+    <div class="concept-head">
+      <div class="eyebrow">Concepto 02</div>
+      <h2>Split editorial</h2>
+      <p class="rationale">Imagen y contenido conviven en la misma vista, sin depender de que el visitante haga scroll para leer las ficha técnica. Buen equilibrio entre lo emocional y lo informativo, con dos llamadas a la acción claras.</p>
+    </div>
+    <div class="frame">
+      <div class="c2-grid">
+        <div class="placeholder-photo"><span class="cap">Foto — perfil lateral, luz natural</span></div>
+        <div class="c2-copy">
+          <div class="kicker">Serie 2026</div>
+          <h3>Diseñada para quien no negocia el detalle</h3>
+          <p>Tracción integral, interiores en piel Nappa y una suspensión adaptativa pensada para la Ciudad de México y carretera abierta.</p>
+          <ul class="speclist">
+            <li><span>Motor</span><span>3.0L V6 Turbo</span></li>
+            <li><span>Potencia</span><span>400 hp</span></li>
+            <li><span>0–100 km/h</span><span>5.4 s</span></li>
+          </ul>
+          <div class="c2-actions">
+            <a class="btn btn-primary">Ver ficha completa</a>
+            <a class="btn btn-ghost">Agendar prueba de manejo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 3 -->
+  <section class="concept c3" id="c3">
+    <div class="concept-head">
+      <div class="eyebrow">Concepto 03</div>
+      <h2>Configurador primero</h2>
+      <p class="rationale">Pensado para el visitante que ya compara modelos: un carrusel de la gama arriba, y specs accionables abajo. Reduce el viaje a cotización a un par de clics — el más orientado a conversión.</p>
+    </div>
+    <div class="frame">
+      <div class="c3-inner">
+        <div class="filmstrip">
+          <div class="film-item active">GT Coupé</div>
+          <div class="film-item">Sedán Executive</div>
+          <div class="film-item">SUV Ridge</div>
+          <div class="film-item">SUV Ridge Sport</div>
+          <div class="film-item">Roadster</div>
+        </div>
+        <div class="c3-model">
+          <div class="placeholder-photo"><span class="cap">Foto — 3/4 trasero, modelo seleccionado</span></div>
+          <div class="c3-model-info">
+            <h3>Infinity GT Coupé</h3>
+            <div class="price">Desde $1,180,000 MXN</div>
+            <div class="chiprow">
+              <div class="chip"><span>Motor</span><b>3.0L V6</b></div>
+              <div class="chip"><span>Potencia</span><b>400 hp</b></div>
+              <div class="chip"><span>Transmisión</span><b>Automática 9 vel.</b></div>
+              <div class="chip"><span>Rend.</span><b>11.8 km/l</b></div>
+            </div>
+            <a class="btn btn-primary" style="background:var(--ink);color:var(--paper)">Cotizar este modelo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 4 -->
+  <section class="concept c4" id="c4">
+    <div class="concept-head">
+      <div class="eyebrow">Concepto 04</div>
+      <h2>Narrativa por escenas (frames)</h2>
+      <p class="rationale">La propuesta del prompt maestro: navegación por "escenas" en vez de scroll continuo, ideal para aprovechar el video de presentación cortado en frames. Prueba los puntos de la derecha — cada uno es una escena distinta.</p>
+    </div>
+    <div class="frame">
+      <div class="c4-stage" id="c4stage">
+        <div class="scene active" data-scene="0">
+          <div class="scene-bg placeholder-photo"></div>
+          <div class="scene-copy">
+            <div class="num">01 · Diseño</div>
+            <h3>Una silueta que no se repite</h3>
+            <p>Líneas tensas de principio a fin, sin un solo trazo de más.</p>
+          </div>
+        </div>
+        <div class="scene" data-scene="1">
+          <div class="scene-bg placeholder-photo"></div>
+          <div class="scene-copy">
+            <div class="num">02 · Rendimiento</div>
+            <h3>400 hp, entregados con precisión</h3>
+            <p>Tracción integral y suspensión adaptativa en cada curva.</p>
+          </div>
+        </div>
+        <div class="scene" data-scene="2">
+          <div class="scene-bg placeholder-photo"></div>
+          <div class="scene-copy">
+            <div class="num">03 · Interior</div>
+            <h3>Piel Nappa, silencio de cabina</h3>
+            <p>Cada superficie pensada para el trayecto largo.</p>
+          </div>
+        </div>
+        <div class="scene" data-scene="3">
+          <div class="scene-bg placeholder-photo"></div>
+          <div class="scene-copy">
+            <div class="num">04 · Tecnología</div>
+            <h3>Asistencia que se siente, no se nota</h3>
+            <p>Head-up display, cámara 360° y carga inalámbrica de serie.</p>
+          </div>
+        </div>
+        <div class="scene" data-scene="4">
+          <div class="scene-bg placeholder-photo"></div>
+          <div class="scene-copy">
+            <div class="num">05 · Cotización</div>
+            <h3>Arma la tuya en menos de dos minutos</h3>
+            <p>Elige versión, color y plan de financiamiento en un solo paso.</p>
+          </div>
+        </div>
+        <div class="scene-dots" role="tablist" aria-label="Escenas">
+          <button aria-current="true" data-goto="0"><span class="d"></span>Diseño</button>
+          <button data-goto="1"><span class="d"></span>Rendimiento</button>
+          <button data-goto="2"><span class="d"></span>Interior</button>
+          <button data-goto="3"><span class="d"></span>Tecnología</button>
+          <button data-goto="4"><span class="d"></span>Cotización</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Concept 5 -->
+  <section class="concept c5" id="c5">
+    <div class="concept-head">
+      <div class="eyebrow">Concepto 05</div>
+      <h2>Comparador denso</h2>
+      <p class="rationale">Sin hero grande: va directo a poner los modelos uno junto al otro. Sirve para el visitante en modo investigación, y es el más fácil de mantener por un administrador sin tocar diseño.</p>
+    </div>
+    <div class="frame">
+      <div class="c5-inner">
+        <div class="c5-tablewrap">
+          <table class="compare">
+            <thead>
+              <tr>
+                <th class="model-col">Especificación</th>
+                <th class="model-col">GT Coupé</th>
+                <th class="model-col">Sedán Executive</th>
+                <th class="model-col">SUV Ridge</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th>Motor</th><td>3.0L V6 Turbo</td><td>2.0L I4 Turbo</td><td>3.5L V6</td></tr>
+              <tr><th>Potencia</th><td>400 hp</td><td>268 hp</td><td>295 hp</td></tr>
+              <tr><th>Transmisión</th><td>Automática 9 vel.</td><td>Automática 7 vel.</td><td>CVT</td></tr>
+              <tr><th>Rendimiento</th><td>11.8 km/l</td><td>13.2 km/l</td><td>10.9 km/l</td></tr>
+              <tr><th>Precio desde</th><td>$1,180,000</td><td>$890,000</td><td>$1,050,000</td></tr>
+              <tr class="rowcta">
+                <td></td>
+                <td><a class="btn btn-primary" style="background:var(--ink);color:var(--paper);padding:9px 16px;font-size:12px">Cotizar</a></td>
+                <td><a class="btn btn-primary" style="background:var(--ink);color:var(--paper);padding:9px 16px;font-size:12px">Cotizar</a></td>
+                <td><a class="btn btn-primary" style="background:var(--ink);color:var(--paper);padding:9px 16px;font-size:12px">Cotizar</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="note">
+    <b>Nota:</b> paleta y tipografía tomadas del análisis de infiniti.mx (Pasos 3–4 de la hoja de tarea). Modelos, precios y fotografías son marcadores de posición para evaluar el layout — se sustituyen por catálogo y material real de Infinity antes de producción.
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var stage = document.getElementById('c4stage');
+    if (!stage) return;
+    var scenes = stage.querySelectorAll('.scene');
+    var dots = stage.querySelectorAll('.scene-dots button');
+    dots.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var idx = btn.getAttribute('data-goto');
+        scenes.forEach(function (s) { s.classList.toggle('active', s.getAttribute('data-scene') === idx); });
+        dots.forEach(function (d) { d.setAttribute('aria-current', d === btn ? 'true' : 'false'); });
+      });
+    });
+  })();
+</script>

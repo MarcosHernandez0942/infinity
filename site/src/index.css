@@ -1,0 +1,110 @@
+:root {
+  --ink: #020b24;
+  --ink-soft: #0b1230;
+  --paper: #fbfaf7;
+  --bronze: #b0a591;
+  --bronze-deep: #7c6f55;
+  --bronze-bright: #cabfa8;
+  --mist: #9aa2b8;
+  --line: rgba(251, 250, 247, 0.14);
+  --line-strong: rgba(251, 250, 247, 0.28);
+  --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font);
+  font-weight: 300;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 300;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bronze);
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  padding: 13px 26px;
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--bronze);
+  color: #14110a;
+}
+.btn-primary:hover {
+  background: var(--bronze-bright);
+}
+.btn-primary:disabled {
+  background: var(--line-strong);
+  color: var(--mist);
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--paper);
+}
+
+.wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 0 20px;
+  }
+}

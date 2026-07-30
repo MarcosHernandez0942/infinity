@@ -1,0 +1,91 @@
+PROYECTO: Infinity — Prompts del Paso 4 (hoja "Tarea" de la Plantilla de desarrollo)
+======================================================================
+
+Estos son los 2 prompts de IA que corresponden al Paso 4, ya rellenados con los
+datos concretos de Infinity (en vez de los "ABC" genéricos de la plantilla),
+listos para copiar y usar en cualquier herramienta de IA.
+
+----------------------------------------------------------------------
+PROMPT 1 — Paleta de colores (filas 11-13 de la hoja "Tarea")
+----------------------------------------------------------------------
+Revisa la página https://www.infiniti.mx/, el logo adjunto (logo_infiniti.svg /
+logo_infiniti.png) y las imágenes de referencia adjuntas (ref_hero_owner_leaning.jpg,
+ref_closeup_grille.jpg, ref_vista_aerea.jpg), así como considera que el objetivo
+es promover una landing page de autos de lujo, y el público objetivo son
+visitantes interesados en cotizar/comprar y un administrador del sitio.
+Dime en hexadecimal los colores para la paleta del sitio: Principal 1,
+Principal 2 y Secundario.
+
+Resultado ya obtenido para Infinity:
+- Principal 1: #020B24 (negro-azulado, fondos oscuros y CTAs)
+- Principal 2: #FEFEFE (blanco, fondos claros)
+- Secundario:  #B0A591 (dorado-beige, acentos y detalles de marca)
+
+----------------------------------------------------------------------
+PROMPT 2 — 5 muestras de layout (fila 14 de la hoja "Tarea")
+----------------------------------------------------------------------
+Define 5 muestras de cómo se vería la página usando diferentes layouts, pero
+debe ser profesional y continuar con los tonos #020B24 (Principal 1), #FEFEFE
+(Principal 2) y #B0A591 (Secundario), la tipografía "Infiniti Light"/"Infiniti
+Extended Regular" (una sola familia ligera, variando peso 200-500, con
+fallback Verdana/Arial/sans-serif), y el objetivo de promover autos de lujo
+para visitantes que buscan cotizar/comprar y un administrador del sitio.
+
+Resultado ya obtenido para Infinity: 5 conceptos de layout (cinemático de
+pantalla completa, split editorial, configurador primero, narrativa por
+escenas/frames, comparador denso) — ver infinity_5_layouts.html en esta misma
+carpeta.
+
+----------------------------------------------------------------------
+Plantilla genérica original (hoja "Tarea", para reutilizar con otros proyectos)
+----------------------------------------------------------------------
+Prompt 1: "revisa la pagina ABC, Logo, Imágenes adjuntas, asi como considera
+que el objetivo es ABC, y el publico objetivo es ABC y dime en hexadecimal
+los colores para la paleta del sitio"
+
+Prompt 2: "Define 5 muestra de como se veria la pagina usando difenrentes
+layouts, pero debe ser profesional y continuar con los tonos ABC, las
+fuentes ABC, y el objetivo ABC"
+
+----------------------------------------------------------------------
+Mismo contenido en JSON (por si lo necesitas en ese formato)
+----------------------------------------------------------------------
+{
+  "proyecto": "Infinity",
+  "paso": 4,
+  "hoja_origen": "Tarea",
+  "prompts": [
+    {
+      "id": 1,
+      "titulo": "Paleta de colores",
+      "filas_hoja": "11-13",
+      "prompt_relleno": "Revisa la página https://www.infiniti.mx/, el logo adjunto (logo_infiniti.svg / logo_infiniti.png) y las imágenes de referencia adjuntas (ref_hero_owner_leaning.jpg, ref_closeup_grille.jpg, ref_vista_aerea.jpg), así como considera que el objetivo es promover una landing page de autos de lujo, y el público objetivo son visitantes interesados en cotizar/comprar y un administrador del sitio. Dime en hexadecimal los colores para la paleta del sitio: Principal 1, Principal 2 y Secundario.",
+      "prompt_generico": "revisa la pagina ABC, Logo, Imágenes adjuntas, asi como considera que el objetivo es ABC, y el publico objetivo es ABC y dime en hexadecimal los colores para la paleta del sitio",
+      "resultado": {
+        "principal_1": "#020B24",
+        "principal_1_desc": "negro-azulado, fondos oscuros y CTAs",
+        "principal_2": "#FEFEFE",
+        "principal_2_desc": "blanco, fondos claros",
+        "secundario": "#B0A591",
+        "secundario_desc": "dorado-beige, acentos y detalles de marca"
+      }
+    },
+    {
+      "id": 2,
+      "titulo": "5 muestras de layout",
+      "filas_hoja": "14",
+      "prompt_relleno": "Define 5 muestras de cómo se vería la página usando diferentes layouts, pero debe ser profesional y continuar con los tonos #020B24 (Principal 1), #FEFEFE (Principal 2) y #B0A591 (Secundario), la tipografía \"Infiniti Light\"/\"Infiniti Extended Regular\" (una sola familia ligera, variando peso 200-500, con fallback Verdana/Arial/sans-serif), y el objetivo de promover autos de lujo para visitantes que buscan cotizar/comprar y un administrador del sitio.",
+      "prompt_generico": "Define 5 muestra de como se veria la pagina usando difenrentes layouts, pero debe ser profesional y continuar con los tonos ABC, las fuentes ABC, y el objetivo ABC",
+      "resultado": {
+        "archivo": "infinity_5_layouts.html",
+        "conceptos": [
+          "Cinemático de pantalla completa",
+          "Split editorial",
+          "Configurador primero",
+          "Narrativa por escenas/frames",
+          "Comparador denso"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+site/node_modules/
+site/dist/
+
+# Copia de trabajo local — la copia que usa el sitio (y la que se versiona)
+# vive en site/public/videos/
+/videos/
+
+.DS_Store
+Thumbs.db
+*.log
