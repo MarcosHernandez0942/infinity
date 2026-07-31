@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import VideoBackground from './VideoBackground.jsx'
 import Reveal from './Reveal.jsx'
+import Select from './Select.jsx'
 
 const initialForm = { nombre: '', telefono: '', correo: '', version: '', distribuidor: '' }
+
+const VERSIONES = ['PURE', 'LUXE', 'SENSORY'].map((v) => ({ value: v, label: v }))
 
 // NOTA: lista de EJEMPLO — reemplazar por los distribuidores reales del
 // cliente antes de publicar (ver también Distribuidores.jsx).
@@ -11,7 +14,7 @@ const DISTRIBUIDORES_DEMO = [
   'INFINITI Santa Fe (CDMX)',
   'INFINITI Guadalajara',
   'INFINITI Monterrey',
-]
+].map((d) => ({ value: d, label: d }))
 
 export default function Cotizador() {
   const [form, setForm] = useState(initialForm)
@@ -59,21 +62,25 @@ export default function Cotizador() {
                 </div>
                 <div className="field">
                   <label htmlFor="version">Versión de interés</label>
-                  <select id="version" name="version" value={form.version} onChange={handleChange}>
-                    <option value="">Selecciona una versión</option>
-                    <option value="PURE">PURE</option>
-                    <option value="LUXE">LUXE</option>
-                    <option value="SENSORY">SENSORY</option>
-                  </select>
+                  <Select
+                    id="version"
+                    name="version"
+                    value={form.version}
+                    onChange={handleChange}
+                    options={VERSIONES}
+                    placeholder="Selecciona una versión"
+                  />
                 </div>
                 <div className="field">
                   <label htmlFor="distribuidor">Distribuidor más cercano</label>
-                  <select id="distribuidor" name="distribuidor" value={form.distribuidor} onChange={handleChange}>
-                    <option value="">Selecciona un distribuidor</option>
-                    {DISTRIBUIDORES_DEMO.map((d) => (
-                      <option key={d} value={d}>{d}</option>
-                    ))}
-                  </select>
+                  <Select
+                    id="distribuidor"
+                    name="distribuidor"
+                    value={form.distribuidor}
+                    onChange={handleChange}
+                    options={DISTRIBUIDORES_DEMO}
+                    placeholder="Selecciona un distribuidor"
+                  />
                 </div>
                 <button type="submit" className="btn btn-primary cotiza-submit">Solicita tu cotización</button>
               </form>
