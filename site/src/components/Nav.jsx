@@ -2,7 +2,6 @@ const LINKS = [
   { id: 'diseno', label: 'Modelos' },
   { id: 'cotiza', label: 'Cotiza' },
   { id: 'distribuidores', label: 'Distribuidores' },
-  { id: 'footer', label: 'Contacto' },
 ]
 
 export default function Nav({ activeId }) {
