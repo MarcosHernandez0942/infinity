@@ -92,7 +92,9 @@ html {
   z-index: 1;
 }
 .vignette {
-  background: radial-gradient(120% 100% at 50% 50%, transparent 45%, rgba(2, 11, 36, 0.5) 100%);
+  background:
+    linear-gradient(to bottom, var(--ink) 0%, transparent 14%, transparent 86%, var(--ink) 100%),
+    radial-gradient(120% 100% at 50% 50%, transparent 45%, rgba(2, 11, 36, 0.35) 100%);
   z-index: 1;
 }
 .scrim-bottom-left {
