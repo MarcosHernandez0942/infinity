@@ -1,3 +1,15 @@
+// NOTA: correo, teléfono y redes son datos de EJEMPLO (dominio/handle
+// ficticios) para que la demo no se vea vacía — reemplazar por los
+// reales del cliente antes de publicar.
+const CONTACTO_DEMO = {
+  correo: 'contacto@infinity-qx55.mx',
+  telefono: '01 800 000 0000',
+}
+const REDES_DEMO = ['Instagram', 'Facebook', 'TikTok'].map((red) => ({
+  red,
+  handle: '@InfinityQX55MX',
+}))
+
 export default function Footer() {
   return (
     <footer id="footer" className="site-footer">
@@ -17,13 +29,16 @@ export default function Footer() {
           <div className="footer-col">
             <h4>Contacto</h4>
             <ul>
-              <li className="pending">Correo y teléfono: pendientes de confirmar</li>
+              <li>{CONTACTO_DEMO.correo}</li>
+              <li>{CONTACTO_DEMO.telefono}</li>
             </ul>
           </div>
           <div className="footer-col">
             <h4>Síguenos</h4>
             <ul>
-              <li className="pending">Redes sociales: pendientes de confirmar</li>
+              {REDES_DEMO.map((r) => (
+                <li key={r.red}>{r.red}: {r.handle}</li>
+              ))}
             </ul>
           </div>
         </div>

@@ -10,11 +10,11 @@ export default function Interior() {
       body="Cada superficie pensada para el trayecto largo, con una cabina que aísla el ruido exterior sin esfuerzo."
     >
       <ul className="bulletlist">
-        <li>Asientos con calefacción y ventilación</li>
-        <li>Iluminación ambiental configurable</li>
-        <li>Techo panorámico</li>
+        <li>Asientos delanteros con calefacción y ventilación</li>
+        <li>Tapicería en piel semi-anilina (versión Sensory)</li>
+        <li>Techo panorámico de cristal fijo</li>
       </ul>
-      <p className="specs-note">Equipamiento por confirmar según versión del QX55.</p>
+      <p className="specs-note">Equipamiento de referencia INFINITI QX55 — varía según versión (PURE, LUXE, SENSORY).</p>
       <a className="btn btn-primary" href="#cotiza">Agenda una prueba de manejo</a>
     </SplitVideoSection>
   )

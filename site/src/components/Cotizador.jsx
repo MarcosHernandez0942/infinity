@@ -50,7 +50,12 @@ export default function Cotizador() {
                 </div>
                 <div className="field">
                   <label htmlFor="version">Versión de interés</label>
-                  <input id="version" name="version" placeholder="Ej. PURE, LUXE, SENSORY" value={form.version} onChange={handleChange} />
+                  <select id="version" name="version" value={form.version} onChange={handleChange}>
+                    <option value="">Selecciona una versión</option>
+                    <option value="PURE">PURE</option>
+                    <option value="LUXE">LUXE</option>
+                    <option value="SENSORY">SENSORY</option>
+                  </select>
                 </div>
                 <div className="field">
                   <label htmlFor="distribuidor">Distribuidor más cercano</label>

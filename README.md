@@ -32,9 +32,19 @@ docker compose up --build
 
 Sirve el sitio en `http://localhost:8081`.
 
+## Datos reales vs. inventados
+
+- **Specs del QX55** (motor, potencia, transmisión, rendimiento, equipamiento):
+  son las publicadas por INFINITI — confirmar contra la ficha técnica vigente
+  antes de publicar, pueden variar por versión/año modelo.
+- **Distribuidor, contacto y redes sociales** (`Distribuidores.jsx`,
+  `Footer.jsx`): son datos de EJEMPLO inventados (dirección, teléfono, correo
+  y handles ficticios) para que la demo no se vea vacía. Están marcados con un
+  comentario `NOTA` en el código — **hay que reemplazarlos por los datos
+  reales del cliente antes de publicar**, no son información verificada.
+
 ## Pendiente
 
 - Backend (Flask + PostgreSQL + Celery/RabbitMQ + Redis) para guardar
   cotizaciones reales y el panel de administrador — ver `paso8_prompt_maestro.txt`.
-- Confirmar con el cliente: specs oficiales del QX55, distribuidor, contacto
-  y redes sociales (marcados como "Por confirmar" en el sitio).
+- Reemplazar los datos inventados de distribuidor/contacto/redes por los reales.

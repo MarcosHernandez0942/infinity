@@ -23,8 +23,8 @@ export default function Tecnologia() {
           <span className="value">Inalámbrica</span>
         </div>
         <div className="chip">
-          <span className="label">Conectividad</span>
-          <span className="value pending">Por confirmar</span>
+          <span className="label">Asistencia</span>
+          <span className="value">ProPILOT Assist</span>
         </div>
       </div>
       <a className="btn btn-primary" href="#cotiza">Explora la tecnología INFINITI</a>
