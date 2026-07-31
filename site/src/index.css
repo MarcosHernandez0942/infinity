@@ -1,13 +1,15 @@
 :root {
-  --ink: #020b24;
-  --ink-soft: #0b1230;
-  --paper: #fbfaf7;
-  --bronze: #b0a591;
-  --bronze-deep: #7c6f55;
-  --bronze-bright: #cabfa8;
-  --mist: #9aa2b8;
-  --line: rgba(251, 250, 247, 0.14);
-  --line-strong: rgba(251, 250, 247, 0.28);
+  /* Paleta propia de Infinity — graphite + copper, distinta del
+     negro-navy + bronce-beige del sitio de referencia (infiniti.mx) */
+  --ink: #1b1815;
+  --ink-soft: #262019;
+  --paper: #f6f1e7;
+  --bronze: #b8632f;
+  --bronze-deep: #8a4a22;
+  --bronze-bright: #d68a54;
+  --mist: #a79c8e;
+  --line: rgba(246, 241, 231, 0.14);
+  --line-strong: rgba(246, 241, 231, 0.28);
   --font: -apple-system, "Helvetica Neue", Arial, sans-serif;
 }
 
