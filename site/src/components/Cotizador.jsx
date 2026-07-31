@@ -4,6 +4,15 @@ import Reveal from './Reveal.jsx'
 
 const initialForm = { nombre: '', telefono: '', correo: '', version: '', distribuidor: '' }
 
+// NOTA: lista de EJEMPLO — reemplazar por los distribuidores reales del
+// cliente antes de publicar (ver también Distribuidores.jsx).
+const DISTRIBUIDORES_DEMO = [
+  'INFINITI Distribuidor Bosques (León, Gto.)',
+  'INFINITI Santa Fe (CDMX)',
+  'INFINITI Guadalajara',
+  'INFINITI Monterrey',
+]
+
 export default function Cotizador() {
   const [form, setForm] = useState(initialForm)
   const [sent, setSent] = useState(false)
@@ -59,7 +68,12 @@ export default function Cotizador() {
                 </div>
                 <div className="field">
                   <label htmlFor="distribuidor">Distribuidor más cercano</label>
-                  <input id="distribuidor" name="distribuidor" placeholder="Ciudad o distribuidor" value={form.distribuidor} onChange={handleChange} />
+                  <select id="distribuidor" name="distribuidor" value={form.distribuidor} onChange={handleChange}>
+                    <option value="">Selecciona un distribuidor</option>
+                    {DISTRIBUIDORES_DEMO.map((d) => (
+                      <option key={d} value={d}>{d}</option>
+                    ))}
+                  </select>
                 </div>
                 <button type="submit" className="btn btn-primary cotiza-submit">Solicita tu cotización</button>
               </form>
