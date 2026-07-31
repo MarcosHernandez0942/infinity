@@ -1,35 +1,31 @@
 import { useEffect, useState } from 'react'
 
+// Recorre las secciones en orden y elige la última cuyo borde superior ya
+// cruzó la línea de referencia (offset). A diferencia de un
+// IntersectionObserver centrado, esto funciona igual de bien con secciones
+// cortas (footer, distribuidores) que con secciones de pantalla completa.
 export default function useActiveSection(ids) {
   const [activeId, setActiveId] = useState(ids[0])
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.id)
-        })
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
-    )
-
-    const els = ids.map((id) => document.getElementById(id)).filter(Boolean)
-    els.forEach((el) => observer.observe(el))
-
-    // El observer solo detecta secciones que llegan a cruzar la banda
-    // central de la pantalla. Si la última sección es más corta que el
-    // viewport (como el footer), nunca la alcanza — se detecta aparte
-    // que se llegó al fondo de la página.
-    function onScroll() {
-      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
-      if (atBottom) setActiveId(ids[ids.length - 1])
+    function computeActive() {
+      const offset = window.innerHeight * 0.4
+      let current = ids[0]
+      for (const id of ids) {
+        const el = document.getElementById(id)
+        if (!el) continue
+        if (el.getBoundingClientRect().top - offset <= 0) current = id
+        else break
+      }
+      setActiveId(current)
     }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
 
+    computeActive()
+    window.addEventListener('scroll', computeActive, { passive: true })
+    window.addEventListener('resize', computeActive)
     return () => {
-      observer.disconnect()
-      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('scroll', computeActive)
+      window.removeEventListener('resize', computeActive)
     }
   }, [ids])
 
