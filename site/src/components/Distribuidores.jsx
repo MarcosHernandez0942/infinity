@@ -1,7 +1,9 @@
+import Reveal from './Reveal.jsx'
+
 export default function Distribuidores() {
   return (
     <section id="distribuidores" className="distribuidores">
-      <div className="wrap distribuidores-inner">
+      <Reveal as="div" className="wrap distribuidores-inner">
         <div className="eyebrow" style={{ color: 'var(--bronze-deep)' }}>Distribuidores</div>
         <h2>Nada se compara con verla en persona</h2>
         <p className="body">
@@ -12,7 +14,7 @@ export default function Distribuidores() {
           <p className="pending">Dirección, teléfono y horario: pendientes de confirmar con el cliente.</p>
         </div>
         <a className="btn btn-primary" href="#cotiza">Encuentra tu distribuidor</a>
-      </div>
+      </Reveal>
     </section>
   )
 }

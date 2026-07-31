@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import VideoBackground from './VideoBackground.jsx'
+import Reveal from './Reveal.jsx'
 
 const initialForm = { nombre: '', telefono: '', correo: '', version: '', distribuidor: '' }
 
@@ -20,17 +22,11 @@ export default function Cotizador() {
 
   return (
     <section id="cotiza" className="video-section">
-      <video
-        src="/videos/escena5_cierre_16x9.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
+      <VideoBackground src="/videos/escena5_cierre_16x9.mp4" />
       <div className="scrim scrim-cta" />
       <div className="wrap section-content">
         <div className="cotiza-grid">
-          <div className="cotiza-panel">
+          <Reveal className="cotiza-panel">
             <div className="eyebrow">Cotización</div>
             <h2>Arma la tuya en menos de dos minutos</h2>
 
@@ -67,7 +63,7 @@ export default function Cotizador() {
             <p className="cotiza-fineprint">
               Tus datos se usan únicamente para darte seguimiento con tu cotización.
             </p>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

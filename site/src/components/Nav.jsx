@@ -1,4 +1,11 @@
-export default function Nav() {
+const LINKS = [
+  { id: 'diseno', label: 'Modelos' },
+  { id: 'cotiza', label: 'Cotiza' },
+  { id: 'distribuidores', label: 'Distribuidores' },
+  { id: 'footer', label: 'Contacto' },
+]
+
+export default function Nav({ activeId }) {
   return (
     <header className="nav">
       <div className="nav-inner">
@@ -6,10 +13,13 @@ export default function Nav() {
           <img src="/images/logo_infiniti.png" alt="INFINITI" />
         </a>
         <ul className="nav-links">
-          <li><a href="#diseno">Modelos</a></li>
-          <li><a href="#cotiza">Cotiza</a></li>
-          <li><a href="#distribuidores">Distribuidores</a></li>
-          <li><a href="#footer">Contacto</a></li>
+          {LINKS.map((link) => (
+            <li key={link.id}>
+              <a href={`#${link.id}`} className={activeId === link.id ? 'is-active' : ''}>
+                {link.label}
+              </a>
+            </li>
+          ))}
         </ul>
         <a className="btn btn-ghost nav-cta" href="#cotiza">Agenda una prueba</a>
       </div>
