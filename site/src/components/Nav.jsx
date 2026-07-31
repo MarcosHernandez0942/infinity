@@ -21,7 +21,6 @@ export default function Nav({ activeId }) {
             </li>
           ))}
         </ul>
-        <a className="btn btn-ghost nav-cta" href="#cotiza">Agenda una prueba</a>
       </div>
     </header>
   )

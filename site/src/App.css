@@ -43,15 +43,8 @@
   opacity: 1;
   color: var(--bronze-bright);
 }
-.nav-cta {
-  font-size: 12px;
-}
-
 @media (max-width: 760px) {
   .nav-links {
-    display: none;
-  }
-  .nav-cta {
     display: none;
   }
 }
