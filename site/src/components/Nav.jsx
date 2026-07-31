@@ -1,6 +1,5 @@
 const LINKS = [
   { id: 'diseno', label: 'Modelos' },
-  { id: 'cotiza', label: 'Cotiza' },
   { id: 'distribuidores', label: 'Distribuidores' },
 ]
 

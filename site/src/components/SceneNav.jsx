@@ -3,7 +3,6 @@ const SCENES = [
   { id: 'rendimiento', label: 'Rendimiento' },
   { id: 'interior', label: 'Interior' },
   { id: 'tecnologia', label: 'Tecnología' },
-  { id: 'cotiza', label: 'Cotización' },
 ]
 
 export default function SceneNav({ activeId }) {
