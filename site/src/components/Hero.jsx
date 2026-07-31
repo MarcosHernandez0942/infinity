@@ -4,7 +4,7 @@ import Reveal from './Reveal.jsx'
 export default function Hero() {
   return (
     <section id="diseno" className="video-section">
-      <VideoBackground src="/videos/escena1_diseno_16x9.mp4" />
+      <VideoBackground src="/videos/escena1_diseno_16x9.mp4" srcMobile="/videos/escena1_diseno_9x16.mp4" />
       <div className="scrim scrim-bottom-left" />
       <div className="wrap section-content">
         <Reveal className="hero-body">

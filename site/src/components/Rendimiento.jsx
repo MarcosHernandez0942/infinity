@@ -5,6 +5,7 @@ export default function Rendimiento() {
     <SplitVideoSection
       id="rendimiento"
       videoSrc="/videos/escena2_rendimiento_16x9.mp4"
+      videoSrcMobile="/videos/escena2_rendimiento_9x16.mp4"
       eyebrow="Rendimiento"
       title="Potencia entregada con precisión"
       body="Motor VC-Turbo de compresión variable y tracción integral inteligente, con suspensión pensada para la Ciudad de México y para la carretera abierta."

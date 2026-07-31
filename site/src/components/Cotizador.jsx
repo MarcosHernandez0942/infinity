@@ -34,7 +34,7 @@ export default function Cotizador() {
 
   return (
     <section id="cotiza" className="video-section">
-      <VideoBackground src="/videos/escena5_cierre_16x9.mp4" />
+      <VideoBackground src="/videos/escena5_cierre_16x9.mp4" srcMobile="/videos/escena5_cierre_9x16.mp4" />
       <div className="scrim scrim-cta" />
       <div className="wrap section-content">
         <div className="cotiza-grid">

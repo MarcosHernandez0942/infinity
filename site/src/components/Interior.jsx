@@ -5,6 +5,7 @@ export default function Interior() {
     <SplitVideoSection
       id="interior"
       videoSrc="/videos/escena3_interior_16x9.mp4"
+      videoSrcMobile="/videos/escena3_interior_9x16.mp4"
       eyebrow="Interior"
       title="Piel premium, silencio de cabina"
       body="Cada superficie pensada para el trayecto largo, con una cabina que aísla el ruido exterior sin esfuerzo."

@@ -5,6 +5,7 @@ export default function Tecnologia() {
     <SplitVideoSection
       id="tecnologia"
       videoSrc="/videos/escena4_tecnologia_16x9.mp4"
+      videoSrcMobile="/videos/escena4_tecnologia_9x16.mp4"
       eyebrow="Tecnología"
       title="Asistencia que se siente, no se nota"
       body="Cámara Around View Monitor de 360°, pantalla central y conectividad pensadas para no distraer, solo ayudar."
